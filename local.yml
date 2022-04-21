@@ -1,13 +1,10 @@
 - hosts: localhost
   become: true
   tasks:
-  - name: Install htop
-    apt: name=htop
-  - name: Install git
-    apt: name=git
-  - name: Install fish
-    apt: name=fish
-  - name: Install midnight commander
-    apt: name=mc
-  - name: Install byobu
-    apt: name=byobu
+  - name: Install packages
+    apt: name={{item}}
+    with_items:
+      - git
+      - fish
+      - mc
+      - byobu
